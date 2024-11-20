@@ -3,7 +3,7 @@ package com.iudigital.actividad.cliente;
 import java.util.List;
 
 /**
- * @author
+ * @author Jonathan Guerra
  */
 public class ClienteProducto {
 
