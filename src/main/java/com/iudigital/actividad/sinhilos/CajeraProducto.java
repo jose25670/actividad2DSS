@@ -1,5 +1,8 @@
 package com.iudigital.actividad.sinhilos;
 
+import com.iudigital.actividad.cliente.ClienteProducto;
+import com.iudigital.actividad.cliente.Producto;
+
 /**
  * Método encargado de
  * @author
@@ -12,12 +15,18 @@ public class CajeraProducto {
     public CajeraProducto(String nombre) {
         this.nombre = nombre;
     }
+
+    /**
+     *
+     * @param cliente
+     * @param timeStamp
+     */
     public void procesarCompra(ClienteProducto cliente, long timeStamp){
         System.out.println("la cajera " + this.nombre +
                 "comienza a procesar la compra del cleinte "
                 + cliente.getNombre() + "en el tiempo: " + (System.currentTimeMillis() - timeStamp)/ 1000 + "segundos");
         int contCliente = 1;
-        for (Produto producto : cliente.getProducto()){
+        for (Producto producto : cliente.getProductos()){
             this.esperarXSegundos();
             System.out.println("prosesando el producto " + contCliente
             + "nombre producto " + producto.getNombre()
@@ -25,6 +34,21 @@ public class CajeraProducto {
             + "cantidad productos " + producto.getCantidad()
             + "costo total del producto: "+ producto.getCantidad() * producto.getPrecio()
             + "-> Tiempo: " + (System.currentTimeMillis() - timeStamp) / 1000 + " segundos");
+
         }
+
+        System.out.println(" La cajera "+ this.nombre + " ha terminado de procesar la compra"
+        + " del cliente " + cliente.getNombre() + "en el tiempo: "
+        + (System.currentTimeMillis() - timeStamp) / 1000 + "segundos");
+
+    }
+
+    private void esperarXSegundos() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

@@ -3,8 +3,10 @@ package com.iudigital.actividad.cliente;
 import java.util.List;
 
 /**
- * @author
+ * clase que determina el cliente que realiza la compra
+ * @author Jose David Bermudez Marin
  */
+
 public class ClienteProducto {
 
     private final String nombre;

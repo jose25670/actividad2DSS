@@ -5,7 +5,7 @@ package com.iudigital.actividad.cliente;
  * <br>
  * @author Jose David Bermudez Marin
  */
-public class producto {
+public class Producto {
 
     /**
      * Atributo que determina el nombre
@@ -30,7 +30,7 @@ public class producto {
      * @param precio
      * @param cantidad
      */
-    public producto(String nombre, float precio, float cantidad) {
+    public Producto(String nombre, float precio, float cantidad) {
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
