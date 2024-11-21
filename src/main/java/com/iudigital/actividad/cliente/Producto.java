@@ -46,7 +46,7 @@ public class Producto {
     }
 
     /**
-     * Método encargado de modificar el valor asignado al atributo nombre
+     * Metodo encargado de modificar el valor asignado al atributo nombre
      * @param nombre El nuevo nombre a modificar
      */
     public void setNombre(String nombre) {

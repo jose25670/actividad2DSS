@@ -4,7 +4,7 @@ import com.iudigital.actividad.cliente.ClienteProducto;
 import com.iudigital.actividad.cliente.Producto;
 
 /**
- * Método encargado de
+ * Método encargado de recibir el cliente y el tiempo
  * @author
  */
 public class CajeraProducto {
