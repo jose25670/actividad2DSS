@@ -25,11 +25,11 @@ public class ClienteCajeraHilosMain {
 List<Producto> productos = new ArrayList<>();
         setProductos(productos);
 
-        // Creación de clientes
+       
         ClienteProducto clienteUno = new ClienteProducto("Carlos", productos);
         ClienteProducto clienteDos = new ClienteProducto("Marta", productos);
 
-        // Simulación de compra con cajeras
+        
         long tiempoInicial = System.currentTimeMillis();
         CajeraProductoHilos cajeraUno = new CajeraProductoHilos("Claudia", clienteUno, tiempoInicial);
         CajeraProductoHilos cajeraDos = new CajeraProductoHilos("Marcela", clienteDos, tiempoInicial);
