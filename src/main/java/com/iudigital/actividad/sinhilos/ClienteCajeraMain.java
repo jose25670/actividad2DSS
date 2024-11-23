@@ -1,14 +1,16 @@
 package com.iudigital.actividad.sinhilos;
-
 import com.iudigital.actividad.cliente.ClienteProducto;
 import com.iudigital.actividad.cliente.Producto;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
- * @author
+ *<b>Decripción: Clase que simula un sistema de dos cajeras donde se procesa los productos de dos clientes con sus respectivos atributos.
+ * <br>
+ * @author Jose David Bermudez Marin, Jonathan David Guerra Cano
  */
+
 public class ClienteCajeraMain {
 
     public static void main(String[] args) {
@@ -21,36 +23,57 @@ public class ClienteCajeraMain {
 
 
         long tiempoInicial = System.currentTimeMillis();
-        CajeraProducto cajeraUno = new CajeraProducto("Claudia");
-        CajeraProducto cajeraDos = new CajeraProducto("Marcela");
+        CajeraProducto cajeraUno = new CajeraProducto("Claudia", clienteUno, tiempoInicial);
+        CajeraProducto cajeraDos = new CajeraProducto("Marcela", clienteDos, tiempoInicial);
 
-        cajeraUno.procesarCompra(clienteUno, tiempoInicial);
-        cajeraDos.procesarCompra(clienteDos, tiempoInicial);
+        cajeraUno.procesarCompra();
+        cajeraDos.procesarCompra();
     }
-
-
-
-
-
 
     /**
-     * método encargado de modificar el valor del atributo productos
-     *
-     * @param productos El nuevo productos a modificar
+     * Método para llenar la lista de productos dinámicamente a través de un menú interactivo
+     * @param productos Lista de productos que será llenada
      */
+
     public static void setProductos(List<Producto> productos) {
-        Producto productoUno = new Producto("sal", 5000, 2);
-        Producto productoDos = new Producto("arroz", 2500, 7);
-        Producto productoTres = new Producto("frijol", 8500, 6);
-        Producto productoCuatro = new Producto("lenteja", 1200, 2);
-        /**
-         * funcion encargada de setear los productos
-         */
-        productos.add(productoUno);
-        productos.add(productoDos);
-        productos.add(productoTres);
-        productos.add(productoCuatro);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese los detalles de 4 productos:");
+
+        for (int i = 1; i <= 4; i++) {
+            System.out.println("Producto " + i + ":");
+
+            System.out.print("Nombre: ");
+            String nombre = scanner.nextLine();
+
+            float precio = 0;
+            while (true) {
+                try {
+                    System.out.print("Precio: ");
+                    precio = Float.parseFloat(scanner.nextLine());
+                    if (precio < 0) throw new IllegalArgumentException("El precio no puede ser negativo.");
+                    break;
+                } catch (Exception e) {
+                    System.out.println("Entrada inválida. Por favor, ingrese un número positivo.");
+                }
+            }
+
+            float cantidad = 0;
+            while (true) {
+                try {
+                    System.out.print("Cantidad: ");
+                    cantidad = Float.parseFloat(scanner.nextLine());
+                    if (cantidad < 0) throw new IllegalArgumentException("La cantidad no puede ser negativa.");
+                    break;
+                } catch (Exception e) {
+                    System.out.println("Entrada inválida. Por favor, ingrese un número positivo.");
+                }
+            }
+
+            productos.add(new Producto(nombre, precio, cantidad));
+            System.out.println("Producto agregado exitosamente.\n");
+        }
+
+        System.out.println("¡Productos registrados con éxito!");
 
     }
-
 }

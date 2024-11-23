@@ -1,18 +1,18 @@
 package com.iudigital.actividad.conhilos;
 import com.iudigital.actividad.cliente.ClienteProducto;
 import com.iudigital.actividad.cliente.Producto;
-import org.w3c.dom.ls.LSOutput;
 
-import java.sql.SQLOutput;
-
+/**
+ *<b>Decripción: Clase que representa una cajera que procesa la compra de dos clientes usando hilos de procesamiento con el fin de reducir el tiempo total de compra para ambos.
+ * <br>
+ * @author Jose David Bermudez Marin, Jonathan David Guerra Cano
+ */
 
 public class CajeraProductoHilos extends Thread{
 
 
     private String nombre;
-
     private ClienteProducto cliente;
-
     private long tiempoInicial;
 
     public CajeraProductoHilos(String nombre, ClienteProducto cliente, long tiempoInicial){
@@ -21,24 +21,44 @@ public class CajeraProductoHilos extends Thread{
         this.tiempoInicial = tiempoInicial;
     }
 
+    /**
+     *<b>Método para procesar de cada cliente en un hilo independiente, y muestra la información de forma mas legible.
+     * <br>
+     * @author Jose David Bermudez Marin, Jonathan David Guerra Cano
+     */
+
+    @Override
     public void run() {
-        System.out.println("La cajera " + this.nombre + " comienza a procesar la compra del cliente "
-         + this.cliente.getNombre() + " en el tiempo: " + (System.currentTimeMillis() - this.tiempoInicial)
-         / 1000 + " segundos ");
+        System.out.println("\n=== La cajera " + this.nombre + " comienza a procesar la compra del cliente "
+                + this.cliente.getNombre() + " ===");
+        System.out.println("Tiempo inicial: " + (System.currentTimeMillis() - this.tiempoInicial) / 1000 + " segundos\n");
 
         int contCliente = 1;
         for (Producto producto : cliente.getProductos()) {
             this.esperarXSegundos();
-            System.out.println("procesando el producto " + contCliente + " nombre producto " + producto.getNombre()
-                    + " precio producto " + producto.getPrecio()
-                    + " cantidad productos " + producto.getCantidad()
-                    + " costo total del producto: "+ producto.getCantidad() * producto.getPrecio()
-                    + " -> Tiempo: " + (System.currentTimeMillis() - this.tiempoInicial) / 1000 + " segundos");
-          contCliente++;
+            System.out.println(String.format(
+                    "Producto %d: \n\tNombre: %s\n\tPrecio: %.2f\n\tCantidad: %.2f\n\tCosto total: %.2f\n\tTiempo transcurrido: %d segundos\n",
+                    contCliente,
+                    producto.getNombre(),
+                    producto.getPrecio(),
+                    producto.getCantidad(),
+                    producto.getCantidad() * producto.getPrecio(),
+                    (System.currentTimeMillis() - this.tiempoInicial) / 1000
+            ));
+            contCliente++;
         }
 
-        System.out.println();
+
+
+        System.out.println("=== La cajera " + this.nombre + " ha finalizado el procesamiento del cliente "
+                + this.cliente.getNombre() + " ===\n");
     }
+
+    /**
+     * <b>Pausa la ejecución por un segundo simulando el tiempo de atención a un cliente.
+     * * <br>
+     * @author Jose David Bermudez Marin, Jonathan David Guerra Cano
+     */
 
     private void esperarXSegundos() {
 

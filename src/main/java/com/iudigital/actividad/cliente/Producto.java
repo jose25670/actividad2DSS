@@ -3,25 +3,28 @@ package com.iudigital.actividad.cliente;
 /**
  *<b>Decripción: clase que determina los productos que el cliente compra
  * <br>
- * @author Jose David Bermudez Marin
+ * @author Jose David Bermudez Marin, Jonathan David Guerra Cano
  */
 public class Producto {
 
     /**
      * Atributo que determina el nombre
      */
+
     private String nombre;
 
 
     /**
      * Atributo que determina el precio
      */
+
     private float precio;
 
 
     /**
      * Atributo que determina la cantidad
      */
+
     private float cantidad;
 
 
@@ -49,6 +52,7 @@ public class Producto {
      * Metodo encargado de modificar el valor asignado al atributo nombre
      * @param nombre El nuevo nombre a modificar
      */
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -57,6 +61,7 @@ public class Producto {
      * metodo encargado de retornor el valor asignado al atributo precio
      * @return el precio asociado a la clase
      */
+
     public float getPrecio() {
         return precio;
     }
@@ -65,6 +70,7 @@ public class Producto {
      * Método encargado de modificar el valor asignado al atributo precio
      * @param precio El nuevo precio a modificar
      */
+
     public void setPrecio(float precio) {
         this.precio = precio;
     }
@@ -73,6 +79,7 @@ public class Producto {
      * metodo encargado de retornor el valor asignado al atributo cantidad
      * @return la cantidad asociada a la clase
      */
+
     public float getCantidad() {
         return cantidad;
     }
@@ -81,6 +88,7 @@ public class Producto {
      * Método encargado de modificar el valor asignado al atributo cantidad
      * @param cantidad la cantidad asociada a la clase
      */
+
     public void setCantidad(float cantidad) {
         this.cantidad = cantidad;
     }
