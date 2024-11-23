@@ -44,7 +44,7 @@ public class ClienteCajeraMain {
         Producto productoTres = new Producto("frijol", 8500, 6);
         Producto productoCuatro = new Producto("lenteja", 1200, 2);
         /**
-         * funcion encargada de setar los productos
+         * funcion encargada de setear los productos
          */
         productos.add(productoUno);
         productos.add(productoDos);
